@@ -12,6 +12,7 @@ class InterviewQuestion extends Component {
   clickingAnswer = event => {
     const {question, countingFun} = this.props
     const {correctAnswer} = question
+
     let data
     if (event.target.value === correctAnswer) {
       data = true
@@ -34,9 +35,11 @@ class InterviewQuestion extends Component {
   render() {
     const {question} = this.props
     const {questions, correctAnswer, wrongAnswers} = question
-    const [one, two, three] = wrongAnswers
+    const set1 = [...wrongAnswers, correctAnswer]
+    set1.sort()
+    const [one, two, three, four] = set1
     const {isAnswer} = this.state
-
+    console.log(Array.from(set1))
     return (
       <div className="question-container">
         <h1 className="question-text">{questions}</h1>
@@ -48,18 +51,20 @@ class InterviewQuestion extends Component {
               name={correctAnswer}
               id={one}
               onChange={this.clickingAnswer}
+              disabled={isAnswer}
             />
             <label htmlFor={one}>{one}</label>
           </div>
           <div>
             <input
               type="radio"
-              value={correctAnswer}
+              value={four}
               name={correctAnswer}
-              id={correctAnswer}
+              id={four}
               onChange={this.clickingAnswer}
+              disabled={isAnswer}
             />
-            <label htmlFor={correctAnswer}>{correctAnswer}</label>
+            <label htmlFor={four}>{four}</label>
           </div>
           <div>
             <input
@@ -68,6 +73,7 @@ class InterviewQuestion extends Component {
               name={correctAnswer}
               id={two}
               onChange={this.clickingAnswer}
+              disabled={isAnswer}
             />
             <label htmlFor={two}>{two}</label>
           </div>
@@ -78,6 +84,7 @@ class InterviewQuestion extends Component {
               name={correctAnswer}
               id={three}
               onChange={this.clickingAnswer}
+              disabled={isAnswer}
             />
             <label htmlFor={three}>{three}</label>
           </div>
