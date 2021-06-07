@@ -43,7 +43,7 @@ class InterviewQuestionsApp extends Component {
     return (
       <div className="app-container">
         <div className="heading-container">
-          <h1 className="heading">30 Seconds of Interviews</h1>
+          <h1 className="heading">15 Seconds of Interviews</h1>
           <img
             className="interview-image"
             src="https://assets.ccbp.in/frontend/react-js/interview-questions-img.png"
