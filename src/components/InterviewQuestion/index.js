@@ -12,31 +12,34 @@ class InterviewQuestion extends Component {
   clickingAnswer = event => {
     const {question, countingFun} = this.props
     const {correctAnswer} = question
+
     let data
     if (event.target.value === correctAnswer) {
       data = true
       countingFun()
+      console.log(data)
     } else {
       data = false
+      console.log(data)
     }
-    console.log(data)
     this.setState({isAnswer: true, checking: data})
   }
 
   renderFun = () => {
     const {checking} = this.state
     if (checking === true) {
-      return <p>Correct</p>
+      return <p className="correctStyle">Correct</p>
     }
-    return <p>Wrong</p>
+    return <p className="wrongStyle">Wrong</p>
   }
 
   render() {
     const {question} = this.props
     const {questions, correctAnswer, wrongAnswers} = question
-    const [one, two, three] = wrongAnswers
+    const list1 = [...wrongAnswers, correctAnswer]
+    list1.sort()
+    const [one, two, three, four] = list1
     const {isAnswer} = this.state
-
     return (
       <div className="question-container">
         <h1 className="question-text">{questions}</h1>
@@ -48,18 +51,20 @@ class InterviewQuestion extends Component {
               name={correctAnswer}
               id={one}
               onChange={this.clickingAnswer}
+              disabled={isAnswer}
             />
             <label htmlFor={one}>{one}</label>
           </div>
           <div>
             <input
               type="radio"
-              value={correctAnswer}
+              value={four}
               name={correctAnswer}
-              id={correctAnswer}
+              id={four}
               onChange={this.clickingAnswer}
+              disabled={isAnswer}
             />
-            <label htmlFor={correctAnswer}>{correctAnswer}</label>
+            <label htmlFor={four}>{four}</label>
           </div>
           <div>
             <input
@@ -68,6 +73,7 @@ class InterviewQuestion extends Component {
               name={correctAnswer}
               id={two}
               onChange={this.clickingAnswer}
+              disabled={isAnswer}
             />
             <label htmlFor={two}>{two}</label>
           </div>
@@ -78,6 +84,7 @@ class InterviewQuestion extends Component {
               name={correctAnswer}
               id={three}
               onChange={this.clickingAnswer}
+              disabled={isAnswer}
             />
             <label htmlFor={three}>{three}</label>
           </div>

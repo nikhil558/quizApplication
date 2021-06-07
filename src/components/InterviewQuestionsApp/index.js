@@ -60,10 +60,12 @@ class InterviewQuestionsApp extends Component {
             ))}
           </div>
         </div>
-        <button type="button" onClick={this.totalScore}>
-          Submit
-        </button>
-        {showResult && <h1>{count}/10</h1>}
+        <div className="submission_container">
+          <button type="button" className="button" onClick={this.totalScore}>
+            Submit
+          </button>
+          {showResult && <h1>{count}/10</h1>}
+        </div>
       </div>
     )
   }

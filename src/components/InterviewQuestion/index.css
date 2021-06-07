@@ -1,1 +1,33 @@
 /* Write you CSS here */
+.correctStyle {
+  color: green;
+  font-weight: bold;
+  font-family: 'roboto';
+}
+
+.wrongStyle {
+  color: red;
+  font-weight: bold;
+  font-family: 'roboto';
+}
+
+.question-container {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 16px rgba(126, 133, 142, 0.16);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 577px) {
+  .question-container {
+    width: 88%;
+  }
+}
+
+.question-text {
+  color: #0f172a;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 700;
+}
