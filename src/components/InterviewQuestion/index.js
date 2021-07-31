@@ -40,11 +40,6 @@ class InterviewQuestion extends Component {
     list1.sort()
     const [one, two, three, four] = list1
     const {isAnswer} = this.state
-    const set1 = [...wrongAnswers, correctAnswer]
-    set1.sort()
-    const [one, two, three, four] = set1
-    const {isAnswer} = this.state
-    console.log(Array.from(set1))
     return (
       <div className="question-container">
         <h1 className="question-text">{questions}</h1>
