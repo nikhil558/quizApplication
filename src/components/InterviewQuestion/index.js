@@ -36,18 +36,15 @@ class InterviewQuestion extends Component {
   render() {
     const {question} = this.props
     const {questions, correctAnswer, wrongAnswers} = question
-<<<<<<< HEAD
     const list1 = [...wrongAnswers, correctAnswer]
     list1.sort()
     const [one, two, three, four] = list1
     const {isAnswer} = this.state
-=======
     const set1 = [...wrongAnswers, correctAnswer]
     set1.sort()
     const [one, two, three, four] = set1
     const {isAnswer} = this.state
     console.log(Array.from(set1))
->>>>>>> d4c2f6eb94452867cd076a5fc7dea3ac2bcdd2bc
     return (
       <div className="question-container">
         <h1 className="question-text">{questions}</h1>
